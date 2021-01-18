@@ -1,0 +1,59 @@
+{
+    "result": {
+        "nogroup": {
+            "endpoints": {
+                "endpoint1": {
+                    "message": "",
+                    "state": "Valid",
+                    "type": "GET",
+                    "url": "/"
+                },
+                "endpoint2": {
+                    "message": "",
+                    "state": "Valid",
+                    "type": "GET",
+                    "url": "/.well-known/openeo"
+                },
+                "endpoint3": {
+                    "message": "Input: ; Error: Response of the back end not valid; Details: response body doesn't match the schema: Error at '/collections/0/links':Field must be set to array or not be presentSchema: { 'description': 'Links related to this collection. Could reference to licensing information, other meta data formats with additional information or a preview image.\\nIt is RECOMMENDED to provide links with the following `rel` (relation) types:\\n1. `root` and `parent`: URL to the data discovery endpoint at `/collections`.\\n2. `license`: A link to the license(s) SHOULD be specified if the `license` field is set to `proprietary` or `various`.\\n3. `example`: Links to examples of processes that use this collection.\\n4. `derived_from`: Allows linking to the data this collection was derived from.\\n5. `cite-as`: [DOI](https://www.doi.org/) links should be added. DOIs can also be listed in the STAC fields `sci:doi` and `sci:publications`, see the [STAC scientific extension](https://github.com/radiantearth/stac-spec/tree/v0.9.0/extensions/scientific) for more details.\\n6. `latest-version`: If a collection has been marked as deprecated, a link SHOULD point to the latest version of the collection. The relation types `predecessor-version` (link to older version) and `successor-version` (link to newer version) can also be used to show the relation between versions.\\n7. `alternate`: An alternative representation of the collection. For example, this could be the collection available through another catalog service such as OGC CSW, a human-readable HTML version or a metadata document following another standard such as ISO 19115 or DCAT.\\nFor additional relation types see also the lists of [common relation types in openEO](#section/API-Principles/Web-Linking) and the STAC specification for Collections.', 'items': { '$ref': '#/components/schemas/link' }, 'type': 'array' }Value: 'string'",
+                    "state": "Invalid",
+                    "type": "GET",
+                    "url": "/collections"
+                },
+                "endpoint4": {
+                    "message": "Input: ; Error: Response of the back end not valid; Details: response body doesn't match the schema: Error at '/processes/0/id':Property 'id' is missingSchema: { 'allOf': [ { '$ref': '#/components/schemas/process' } ], 'description': 'A pre-defined process made available by the back-end.', 'required': [ 'id', 'description', 'parameters', 'returns' ], 'title': 'Pre-Defined Process', 'type': 'object' }Value: { 'processes': [ { 'categories': [ 'math \\u003e indices', 'vegetation indices' ], 'description': 'Computes the Normalized Difference Vegetation Index (NDVI). The NDVI is computed as *(nir - red) / (nir + red)*.\\n\\nThe `data` parameter expects a raster data cube as NetCDF including Sentinel2-Data. This cube has three dimensions and two data variables. Dimension are time, lon and lat while data variables are red and nir.\\n\\n. As a result of the computation, a NetCDF-File including the NDVI-values is created in the given path.', 'exceptions': { 'ValueError': { 'message': 'Red or Nir is empty.' } }, 'id': 'ndvi', 'links': [ { 'href': 'https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index', 'rel': 'about', 'title': 'NDVI explained by Wikipedia' }, { 'href': 'https://earthobservatory.nasa.gov/features/MeasuringVegetation/measuring_vegetation_2.php', 'rel': 'about', 'title': 'NDVI explained by NASA' } ], 'parameters': [ { 'description': 'Name of data input / data cube.', 'name': 'data', 'schema': { 'subtype': 'raster-cube', 'type': 'object' } } ], 'returns': { 'description': 'A dask.delayed.Delayed object containing the computed NDVI values. Additionally, this is saved as NetCDF under the given path.', 'schema': { 'subtype': 'raster-cube', 'type': 'object' } }, 'summary': 'Normalized Difference Vegetation Index' } ] }",
+                    "state": "Invalid",
+                    "type": "GET",
+                    "url": "/processes"
+                },
+                "endpoint5": {
+                    "message": "",
+                    "state": "Valid",
+                    "type": "GET",
+                    "url": "/jobs"
+                },
+                "endpoint6": {
+                    "message": "Input: POST  /jobs; Error: Error validating the request; Details: Request body has an error: doesn't match the schema: Error at '/process':Property 'process' is missingSchema: { 'properties': { 'budget': { '$ref': '#/components/schemas/budget' }, 'description': { '$ref': '#/components/schemas/eo_description' }, 'plan': { '$ref': '#/components/schemas/billing_plan_defaultable' }, 'process': { '$ref': '#/components/schemas/process_graph_with_metadata' }, 'title': { '$ref': '#/components/schemas/eo_title' } }, 'required': [ 'process' ], 'title': 'Store Batch Job Request', 'type': 'object' }Value: { 'description': 'Create a monthly aggregated Sentinel 1 product from a custom Python script.', 'process_graph': { 'loadco1': { 'arguments': { 'id': 'Sentinel-1', 'spatial_extent': { 'east': 16.6, 'north': 48.6, 'south': 47.2, 'west': 16.1 }, 'temporal_extent': [ '2017-01-01', '2017-02-01' ] }, 'process_id': 'load_collection' }, 'reduce1': { 'arguments': { 'binary': true, 'data': { 'from_node': 'loadco1' }, 'dimension': 't', 'reducer': { 'callback': { 'runudf1': { 'arguments': { 'data': [ { 'from_parameter': 'x' }, { 'from_parameter': 'y' } ], 'runtime': 'Python', 'udf': 's1_aggregate.py' }, 'process_id': 'run_udf', 'result': true } } } }, 'process_id': 'reduce', 'result': true } }, 'title': 'Monthly aggregation on Sentinel 1' }",
+                    "state": "Invalid",
+                    "type": "POST",
+                    "url": "/jobs"
+                }
+            },
+            "group_summary": "Invalid"
+        }
+    },
+    "stats": {
+        "backend": {
+            "baseurl": "http://localhost/api/v1",
+            "url": "http://localhost/api/v1",
+            "version": ""
+        },
+        "execution": {
+            "end": "2021-01-18 16:47:09",
+            "start": "2021-01-18 16:47:08"
+        },
+        "spec": {
+            "apifile": "https://raw.githubusercontent.com/Open-EO/openeo-api/1.0.0/openapi.yaml"
+        }
+    }
+}
