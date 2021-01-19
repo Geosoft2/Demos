@@ -3,6 +3,8 @@
 
  **Note: The cells must be run sequentially. Otherwise we cant grantee the outcome!**
 
+You can get the demodata [here](https://uni-muenster.sciebo.de/s/BZji0obYBCiOjxI).
+
  #### Used Software
 
  You need [Python](https://www.python.org/) ( We have used 3.8.6) and [Docker](https://www.docker.com/). In addition the [openeo backend validator](https://github.com/Open-EO/openeo-backend-validator) must be installed.
