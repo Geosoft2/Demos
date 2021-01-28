@@ -1,7 +1,10 @@
+# This dockerfile uses the archived versions of the docker images
+# For the most current version change 'gaffko/demo_' to 'felixgi1516/geosoft2_'
+# and ':demo_iv' to ':latest'
 version: "3.9"
 services:
   frontend:
-    image: felixgi1516/geosoft2_frontend:latest
+    image: gaffko/demo_frontend:demo_iv
     depends_on:
       - processManager
       - database
@@ -14,7 +17,7 @@ services:
     volumes:
       - data-volume:/data
   processManager:
-    image: felixgi1516/geosoft2_jobmanagement:latest
+    image: gaffko/demo_jobmanagement:demo_iv
     environment:
       - DOCKER=True
       - ndvi=ndvi_0
@@ -29,7 +32,7 @@ services:
     volumes:
       - data-volume:/data
   database:
-    image: felixgi1516/geosoft2_dataserver:latest
+    image: gaffko/demo_dataserver:demo_iv
     environment:
       - DOCKER=True
     ports:
@@ -37,7 +40,7 @@ services:
     volumes:
       - data-volume:/data
   ndvi_0:
-    image: felixgi1516/geosoft2_ndvi_process:latest
+    image: gaffko/demo_ndvi:demo_iv
     environment:
       - DOCKER=True
     ports:
@@ -45,7 +48,7 @@ services:
     volumes:
       - data-volume:/data
   sst_0:
-    image: felixgi1516/geosoft2_sst_process:latest
+    image: gaffko/demo_sst:demo_iv
     environment:
       - DOCKER=True
     ports:
