@@ -1,0 +1,67 @@
+version: "3.9"
+services:
+  frontend:
+    image: gaffko/demo_frontend:demo_vi
+    depends_on:
+      - processManager
+      - database
+      - ndvi_0
+      - sst_0
+    ports:
+      - 8080:8080
+    environment:
+      - DOCKER=True
+    volumes:
+      - data-volume:/data
+  processManager:
+    image: gaffko/demo_jobmanagement:demo_vi
+    environment:
+      - DOCKER=True
+      - ndvi=ndvi_0
+      - mean_sst=sst_0
+      - load_collection=database
+    depends_on:
+      - database
+      - ndvi_0
+      - sst_0
+    ports:
+      - 80
+    volumes:
+      - data-volume:/data
+  database:
+    image: gaffko/demo_dataserver:demo_vi
+    environment:
+      - DOCKER=True
+      - Username=bugmenot
+      - Password=bugmenot
+      - load_sst=False
+      - load_sentinel=False
+      - SST_Start=2012
+      - SST_End=2013
+      - Sentinel_Start=2020-06-01T00:00:00Z
+      - Sentinel_End=2020-07-01T00:00:00Z
+    ports:
+      - 80
+    volumes:
+      - data-volume:/data
+      - SST:/SST
+      - ./SENTINEL_DATA/:/SENTINEL
+  ndvi_0:
+    image: gaffko/demo_ndvi:demo_vi
+    environment:
+      - DOCKER=True
+    ports:
+      - 80
+    volumes:
+      - data-volume:/data
+  sst_0:
+    image: gaffko/demo_sst:demo_vi
+    environment:
+      - DOCKER=True
+    ports:
+      - 80
+    volumes:
+      - data-volume:/data
+volumes:
+  data-volume:
+  SST:

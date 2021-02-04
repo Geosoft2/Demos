@@ -29,7 +29,7 @@ services:
     volumes:
       - data-volume:/data
   database:
-    image: gaffko/dataserver:demo_v
+    image: gaffko/demo_dataserver:demo_v
     environment:
       - DOCKER=True
     ports:
