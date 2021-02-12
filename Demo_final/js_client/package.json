@@ -1,0 +1,21 @@
+{
+  "name": "demo_final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openeo/js-client": "^1.0.3",
+    "browserfs": "^1.4.3",
+    "chromatography": "^4.2.1",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.4.0",
+    "netcdfjs": "^1.0.0"
+  }
+}

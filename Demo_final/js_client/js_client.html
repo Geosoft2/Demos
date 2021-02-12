@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Geosoftware II Javascript Demonstartion</title>
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+        <script src="./public/js_client.js"></script>
+        <link  rel="stylesheet" href="./public/js_client.css">
+    </head>
+    <body>
+        <h2>Javascript Client Demo</h2>
+        <div class="container">
+            <form>
+                <div class="row">
+                    <label>Process:</label>
+                    <select id="process">
+                        <option value="sst">SST</option>
+                        <option value="ndvi">NDVI</option>
+                    </select>
+                    <label>Title:</label>
+                    <input id="title" name=""></input>
+                    <label>Description:</label>
+                    <input id="description" name=""></input>
+                </div>
+                <div class="row">
+                    <label>Start date:</label>
+                    <input id="start" type="date" min="1981-09-01" value="2020-06-13"></input>
+                    <label>End date:</label>
+                    <input id="end" type="date"  min="1981-09-01" value="2020-06-13"></input>
+                    <label>Bounding Box</label>
+                    <input id="bbox" type="text"></input>
+                </div>
+                <div class="row">
+                    <button onclick="do_job()" type="button">Execute</button>
+                </div>
+                <img id="preview"></img>
+            </form>
+        </div>
+    </body>
+</html>
