@@ -48,8 +48,9 @@ The demo data are datacubes which can be downloaded using this [jupyter notebook
  [pandas](https://pandas.pydata.org/) | 1.1.4
  [geopandas](https://geopandas.org/) | 0.8.1
  [numpy](https://numpy.org/) | 1.19.3
- [sentinelsat](https://sentinelsat.readthedocs.io/en/master/api_overview.html |) | 0.14
+ [sentinelsat](https://sentinelsat.readthedocs.io/en/master/api_overview.html) | 0.14
  [requests](https://requests.readthedocs.io/en/master/)   | 2.25.0
+ [hvplot](https://hvplot.holoviz.org/) | 0.7.0 
 
 
  *Note: These are the versions used in the presentations. Other Version might work also.*

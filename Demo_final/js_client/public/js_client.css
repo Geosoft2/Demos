@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+    background-color: rgb(5, 25, 41);
+    color: white;
+}
+
+input, select{
+    color: black;
+    padding-right: 10px;
+}
+
+label{
+    padding-left: 15px;
+}
+
+.row {
+    padding: 20px;
+}
