@@ -20,7 +20,7 @@ app.use('/data', express.static(__dirname +'/data'));
 
 //Show index HTML at localhost:5000
 app.get('/',
-         (req,res) => res.sendFile(__dirname + '\\js_client.html')
+         (req,res) => res.sendFile(__dirname + '/js_client.html')
 );
 
 app.post('/', (
@@ -30,7 +30,7 @@ app.post('/', (
 
         try {
             //Creation of the connection
-            var con = await OpenEO.connect("http://localhost/api/v1/");
+            var con = await OpenEO.connect("http://localhost/api/v1");
 
             //Creation and start of new job 
             new_job = await con.createJob(job_data.process_graph, job_data.title, job_data.description);     

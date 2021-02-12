@@ -32,7 +32,6 @@ function get_job_data(){
       description = $('#description').val(),
       start = $('#start').val(),
       end = $('#end').val()
-      //bbox =$('#bbox').val();
 
   console.log(process, title, description, start, end)
 

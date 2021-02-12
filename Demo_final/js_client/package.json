@@ -11,11 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@openeo/js-client": "^1.0.3",
-    "browserfs": "^1.4.3",
-    "chromatography": "^4.2.1",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
-    "jsdom": "^16.4.0",
-    "netcdfjs": "^1.0.0"
+    "jsdom": "^16.4.0"
   }
 }
